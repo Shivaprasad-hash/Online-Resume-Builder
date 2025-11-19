@@ -555,6 +555,7 @@ footer .done-button:hover {
     border-width: 0px;
     padding:15px;
     border-radius: 5px;
+    cursor: pointer;
 }
 .fir_duration{
     white-space: nowrap;

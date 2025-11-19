@@ -208,49 +208,49 @@ function addCerti(){
 
 }
 // Save Btn Part
-let saveBtn = document.getElementById("saveBtn");
+// let saveBtn = document.getElementById("saveBtn");
 
-saveBtn.addEventListener("click", function() {
-    // Collect resume data from the right part
-    const resumeData = {
-        template: 'second',
-        name: document.getElementById("headingName").textContent,
-        headline: document.getElementById("headLine").textContent,
-        email: document.getElementById("emailInfo").textContent,
-        phone: document.getElementById("phonenoInfo").textContent,
-        address: document.getElementById("adressInfo").textContent,
-        linkedin: document.getElementById("linkedinInfo").textContent,
-        summary: document.getElementById("summaryBody").textContent,
-        experience: {
-            duration: document.getElementById("startExpYearRight").textContent + " - " + document.getElementById("endExpYearRight").textContent,
-            role: document.getElementById("jobRole").textContent,
-            location: document.getElementById("jobLocation").textContent,
-            description: document.getElementById("roleDescription").textContent
-        },
-        hardSkills: Array.from(document.getElementById("hardSkills").children).map(li => li.textContent),
-        softSkills: Array.from(document.getElementById("softSkills").children).map(li => li.textContent),
-        languages: "Spanish", // Assuming static for now
-        education: {
-            duration: document.getElementById("startEduYear").textContent + " - " + document.getElementById("endEduYear").textContent,
-            institution: document.getElementById("institutionName").textContent,
-            schoolCity: document.getElementById("schoolCity").textContent
-        },
-        certifications: Array.from(document.getElementById("certificationList").children).map(li => li.textContent),
-        savedAt: new Date().toISOString()
-    };
+// saveBtn.addEventListener("click", function() {
+//     // Collect resume data from the right part
+//     const resumeData = {
+//         template: 'second',
+//         name: document.getElementById("headingName").textContent,
+//         headline: document.getElementById("headLine").textContent,
+//         email: document.getElementById("emailInfo").textContent,
+//         phone: document.getElementById("phonenoInfo").textContent,
+//         address: document.getElementById("adressInfo").textContent,
+//         linkedin: document.getElementById("linkedinInfo").textContent,
+//         summary: document.getElementById("summaryBody").textContent,
+//         experience: {
+//             duration: document.getElementById("startExpYearRight").textContent + " - " + document.getElementById("endExpYearRight").textContent,
+//             role: document.getElementById("jobRole").textContent,
+//             location: document.getElementById("jobLocation").textContent,
+//             description: document.getElementById("roleDescription").textContent
+//         },
+//         hardSkills: Array.from(document.getElementById("hardSkills").children).map(li => li.textContent),
+//         softSkills: Array.from(document.getElementById("softSkills").children).map(li => li.textContent),
+//         languages: "Spanish", // Assuming static for now
+//         education: {
+//             duration: document.getElementById("startEduYear").textContent + " - " + document.getElementById("endEduYear").textContent,
+//             institution: document.getElementById("institutionName").textContent,
+//             schoolCity: document.getElementById("schoolCity").textContent
+//         },
+//         certifications: Array.from(document.getElementById("certificationList").children).map(li => li.textContent),
+//         savedAt: new Date().toISOString()
+//     };
 
-    // Save to Firebase
-    const db = firebase.database();
-    const resumeRef = db.ref('resumes').push();
-    resumeRef.set(resumeData)
-        .then(() => {
-            alert('Resume saved successfully!');
-        })
-        .catch((error) => {
-            console.error('Error saving resume:', error);
-            alert('Error saving resume. Please try again.');
-        });
-});
+//     // Save to Firebase
+//     const db = firebase.database();
+//     const resumeRef = db.ref('resumes').push();
+//     resumeRef.set(resumeData)
+//         .then(() => {
+//             alert('Resume saved successfully!');
+//         })
+//         .catch((error) => {
+//             console.error('Error saving resume:', error);
+//             alert('Error saving resume. Please try again.');
+//         });
+// });
 
 addCertificateBtn.addEventListener('click',addCerti);
 
