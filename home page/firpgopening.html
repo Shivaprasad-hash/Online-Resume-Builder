@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Template</title>
+    <link rel="stylesheet" href="firpgopening.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/9.12.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.12.1/firebase-database-compat.js"></script>
+</head>
+<body>
+    <div class="left_part">
+        <div class="main-container">
+            <div class="form-section personal-details">
+                <header>
+                    <h1>Personal details</h1>
+                    <div class="header-icons">
+                        <div class="icon-group">
+                            
+                            <span>&#9660;</span>
+                        </div>
+                    </div>
+                </header>
+
+                <main>
+                    <div class="form-row">
+                        <div class="form-group large-field">
+                            <label for="given-name">First name</label>
+                            <input type="text" id="given-name">
+                        </div>
+                        <div class="form-group large-field">
+                            <label for="family-name">Second name</label>
+                            <input type="text" id="family-name">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group large-field headline-field">
+                            <label for="desired-position">Desired job position</label>
+                            <input type="text" id="desired-position">
+                        </div>
+                        <div class="form-group switch-group">
+                            <label class="switch">
+                                <input type="checkbox" id="useAsHeadlineCheckBox">
+                                <span class="slider round"></span>
+                            </label>
+                            <span>Use as headline</span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group large-field">
+                            <label for="email">Email address</label>
+                            <input type="email" id="email">
+                        </div>
+                        <div class="form-group large-field">
+                            <label for="phone">Phone number</label>
+                            <input type="tel" id="phone">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group full-width">
+                            <label for="address">Address</label>
+                            <input type="text" id="address">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group large-field">
+                            <label for="post-code">Post code</label>
+                            <input type="text" id="post-code">
+                        </div>
+                        <div class="form-group large-field">
+                            <label for="city">City</label>
+                            <input type="text" id="pdCity">
+                        </div>
+                    </div>
+                    <div class="form-group large-field">
+                        <label for="city">Linkedin</label>
+                        <input type="text" id="linkedin">
+                    </div>
+                    <footer>
+                        <button class="done-button" id="pdDoneBtn">✔️ Done</button>
+                    </footer>
+                </main>
+            </div>
+
+            <div class="form-section summary">
+                <header>
+                    <h1>Summary</h1>
+                    <div class="header-icons">
+                        <div class="icon-group">
+                            <span>&#9660;</span>
+                        </div>
+                    </div>
+                </header>
+                <main>
+                    <textarea rows="2" id="summaryText" class="summary_txt" placeholder="Type your Summary here..."></textarea>
+                    <footer>
+                        <button class="done-button" id="summaryDoneBtn">✔️ Done</button>
+                    </footer>
+                </main>
+            </div>
+
+            <div class="form-section education">
+                <header>
+                    <h1>Education</h1>
+                    <div class="header-icons">
+                        <div class="icon-group">
+                            
+                            <span>&#9650;</span>
+                        </div>
+                    </div>
+                </header>
+        
+                <main>
+                    <div class="form-group">
+                        <label for="institution">Education</label>
+                        <input type="text" id="institution">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="school">School</label>
+                            <input type="text" id="school">
+                        </div>
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" id="city">
+                        </div>
+                    </div>
+
+                    <div class="form-row date-row">
+                        <div class="form-group date-picker">
+                            <label>Start date</label>
+                            <div class="date-inputs">
+                                <select>
+                                    <option placeholder="Month" class="monthoption">Month</option>
+                                    <option value="01">January</option>
+                                    <option value="02">February</option>
+                                    <option value="03">March</option>
+                                    <option value="04">April</option>
+                                    <option value="05">May</option>
+                                    <option value="06">June</option>
+                                    <option value="07">July</option>
+                                    <option value="08">August</option>
+                                    <option value="09">September</option>
+                                    <option value="10">October</option>
+                                    <option value="11">November</option>
+                                    <option value="12">December</option>
+                                </select>
+                                <select id="yearSelectStartDate">
+                                    <option placeholder="Year" class="yearoption" id="startYear">Year</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group date-picker end-date">
+                            <label>End date</label>
+                            <div class="date-inputs">
+                                <select>
+                                    <option placeholder="Month" class="monthoption">Month</option>
+                                    <option value="01">January</option>
+                                    <option value="02">February</option>
+                                    <option value="03">March</option>
+                                    <option value="04">April</option>
+                                    <option value="05">May</option>
+                                    <option value="06">June</option>
+                                    <option value="07">July</option>
+                                    <option value="08">August</option>
+                                    <option value="09">September</option>
+                                    <option value="10">October</option>
+                                    <option value="11">November</option>
+                                    <option value="12">December</option>
+                                </select>
+                                <select id="yearSelectEndDate">
+                                    <option placeholder="Year" class="yearoption" id="endYear">Year</option>
+                                    
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group present-switch">
+                            <label class="switch">
+                                <input type="checkbox" id="eduCheckbox">
+                                <span class="slider round"></span>
+                            </label>
+                            <span id="eduPresentTxt">Present</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group description-group">
+                        <label for="description">Description</label>
+                        <textarea id="eduDescriptionTxt" placeholder="Start typing here..."></textarea>
+                    </div>
+                    <button class="add-skill-btn">Add education +</button>
+                </main>
+
+                <footer>
+                    <button class="delete-button">🗑️</button>
+                    <button class="done-button" id="eduDoneBtn">✔️ Done</button>
+                </footer>
+            </div>
+
+
+            <div class="form-section employment">
+                <header>
+                    <h1>Experience</h1>
+                    <div class="header-icons">
+                        <div class="icon-group">
+                            
+                            <span>&#9650;</span>
+                        </div>
+                    </div>
+                </header>
+
+                <main>
+                    <div class="form-group">
+                        <label for="institution">Position</label>
+                        <input type="text" id="position">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="school">Employer</label>
+                            <input type="text" id="companyName">
+                        </div>
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" id="expCity">
+                        </div>
+                    </div>
+
+                    <div class="form-row date-row">
+                        <div class="form-group date-picker">
+                            <label>Start date</label>
+                            <div class="date-inputs">
+                                <select>
+                                    <option placeholder="Month">Month</option>
+                                    <option value="01">January</option>
+                                    <option value="02">February</option>
+                                    <option value="03">March</option>
+                                    <option value="04">April</option>
+                                    <option value="05">May</option>
+                                    <option value="06">June</option>
+                                    <option value="07">July</option>
+                                    <option value="08">August</option>
+                                    <option value="09">September</option>
+                                    <option value="10">October</option>
+                                    <option value="11">November</option>
+                                    <option value="12">December</option>
+                                </select>
+                                <select id="startExpYear">
+                                    <option placeholder="Year">Year</option>
+                                    
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group date-picker end-date">
+                            <label>End date</label>
+                            <div class="date-inputs">
+                                <select>
+                                    <option placeholder="Month">Month</option>
+                                    <option value="01">January</option>
+                                    <option value="02">February</option>
+                                    <option value="03">March</option>
+                                    <option value="04">April</option>
+                                    <option value="05">May</option>
+                                    <option value="06">June</option>
+                                    <option value="07">July</option>
+                                    <option value="08">August</option>
+                                    <option value="09">September</option>
+                                    <option value="10">October</option>
+                                    <option value="11">November</option>
+                                    <option value="12">December</option>
+                                </select>
+                                <select id="endExpYear">
+                                    <option placeholder="Year">Year</option>
+                                    
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group present-switch">
+                            <label class="switch">
+                                <input type="checkbox" id="expPresentCb">
+                                <span class="slider round"></span>
+                            </label>
+                            <span id="expPresentTxt">Present</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group description-group">
+                        <label for="description">Description</label>
+                        <textarea id="expDescription" placeholder="Start typing here..."></textarea>
+                
+                    </div>
+                    <button class="add-skill-btn">Add experience +</button>
+                </main>
+
+                <footer>
+                    <button class="delete-button">🗑️</button>
+                    <button class="done-button" id="expDoneBtn">✔️ Done</button>
+                </footer>
+            </div>
+
+            <div class="form-section skills">
+                <header>
+                    <h1>Skills</h1>
+                    <div class="header-icons">
+                        <div class="icon-group">
+                            
+                            <span>&#9650;</span>
+                        </div>
+                    </div>
+                </header>
+                <main>
+                    <div class="form-group" id="formGroup">
+                        <label for="institution" id="skillLabel">Skill</label>
+                        <input type="text" id="skillInput">
+                        <br>
+                    </div>
+                    <button class="add-skill-btn" id="addSkillBtn">Add skill +</button>
+                </main>
+                <footer>
+                    <button class="delete-button" id="skillDelBtn">🗑️</button>
+                    <button class="done-button" id="skillDoneBtn">✔️ Done</button>
+                </footer>
+            </div>
+
+            <div class="form-section languages">
+                <header>
+                    <h1>Languages</h1>
+                    <div class="header-icons">
+                        <div class="icon-group">
+                            
+                            <span>&#9650;</span>
+                        </div>
+                    </div>
+                </header>
+                <main>
+                    <div class="form-group">
+                        <label for="institution">Language</label>
+                        <input type="text" id="language">
+                    </div>
+                    <button class="add-skill-btn">Add language +</button>
+                </main>
+                <footer>
+                    <button class="delete-button">🗑️</button>
+                    <button class="done-button">✔️ Done</button>
+                </footer>
+            </div>
+
+            
+        </div>
+    </div>
+
+    <!--Right Part-->
+    <div id="rightPreviewSec">
+        <div class="right_part" id="rightPart">
+            <div class="bg_cont" id="bgCont">
+                <div class="header_title_cont">
+                    <p class="resume">Resume</p>
+                    <div>
+                        <h1 class="heading_name" id="headingName">Daniel McAllister</h1>
+                        <p id="headLine" class="desired_position desired_position_display"></p>
+                    </div>
+                </div>
+                <div class="personal_details_cont">
+                    <h2 class="pd_title">
+                        Personal Details
+                    </h2>
+                    <hr>
+                    <div class="pd_body">
+                        <div class="sub_name_cont">
+                            <p class="name personal_det">Name</p>
+                            <p class="emailaddress personal_det">Email address</p>
+                            <p class="phonenumber personal_det">Phone number</p>
+                            <p class="address personal_det">Address</p>
+                            <p class="linkedin personal_det">LinkedIn</p>
+                        </div>
+                        <div class="sub_info_cont">
+                            <p class="name_info personal_det_info" id="nameInfo">Daniel McAllister</p>
+                            <p class="emailaddress_info personal_det_info" id="emailInfo">d.mcallister@example.com</p>
+                            <p class="phonenumber_info personal_det_info" id="phonenoInfo">(456) 789-1234</p>
+                            <p class="address_info personal_det_info" id="adressInfo">Missoula, MT</p>
+                            <p class="linkedin_info personal_det_info" id="linkedinInfo">linkedin.com/in/d.mcallister</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="summary_cont">
+                    <h2 class="summary_title">
+                        Summary
+                    </h2>
+                    <hr>
+                    <p class="summary_body" id="summaryBody">
+                        Efficient and friendly cashier with 5+ years of experience operating point of 
+                        sale systems and 3+ years of experience handling 300+ transactions per day. 
+                        Excited to leverage excellent customer service skills and shift 
+                        management experience to join the Home Depot team as a Cashier (Team Lead).
+                    </p>
+                </div>
+
+                <div class="workexp_cont">
+                    <h2 class="workexp_title">
+                        Work Experience
+                    </h2>
+                    <hr>
+                    <div class="fir_exp">
+                        <div class="duration_firrole_cont">
+                            <p class="fir_duration"><span id="startExpYearRight">Aug 2018 </span><span>- </span><span id="endExpYearRight"> Present</span></p>
+                        </div>
+                        <div class="about_firrole_cont">
+                            <p class="fir_role" id="jobRole">Cashire, Shift Lead</p>
+                            <p class="fir_location" id="jobLocation">IGA, Missoula, MT</p>
+                            <p class="role_description" id="roleDescription">
+                                Assign shifts and manage cashier schedule changes
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills_cont">
+                    <h2 class="skill_title">Skills</h2>
+                    <hr>
+                    <div class="skill_body" id="skillBody">
+                        <p class="skill" id="skillName">Python</p>
+                    </div>
+                </div>
+
+                <div class="education_cont">
+                    <h2 class="edu_title">Education</h2>
+                    <hr>
+                    <div class="edu_body">
+                        <div class="duration_cont">
+                            <p class="edu_duration"><span id="startEduYear">2012 </span><span>-</span><span id="endEduYear" class="edu_present"> 2016</span></p>
+
+                        </div>
+                        <div class="edu_info_cont">
+                            <p class="fir_edu" id="institutionName">High School Diploma</p>
+                            <p class="school_city" id="schoolCity"></p>
+                            <p class="edu_description" id="EduDescription"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="preview_cont">
+                <!--<button class="save_btn" id="saveBtn">Save</button>-->
+                <button class="preview" id="previewBtn">Preview</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="firpgopening.js"></script>
+</body>
+</html>

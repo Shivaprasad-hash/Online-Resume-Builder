@@ -1,0 +1,46 @@
+.form_sec_cont{
+    display:flex;
+    flex-direction: column;
+}
+.card_footer_cont{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.bg_cont{
+    height:100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.login_card{
+    height:250px;
+    width:400px;
+    background-color: bisque;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding:30px;
+    border-radius: 15px;
+}
+.email_sec,.pw_sec{
+    border-width:0.5px;
+    height:30px;
+    border-radius: 5px;
+}
+input:focus{
+    outline: none;
+    border-color: #6096f0;
+    
+}
+.login_btn{
+    border-width: 0px;
+    background-color: blueviolet;
+    color:#ffffff;
+    border-radius: 20px;
+    padding:10px;
+    width:90px;
+    margin-top:20px;
+    cursor: pointer;
+}

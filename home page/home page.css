@@ -1,0 +1,187 @@
+body{
+    margin:0px
+}
+
+
+.nav_bar{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    background-image:linear-gradient(to bottom, #66c52a,#aff060);
+    margin: 0px;
+    padding:15px;
+}
+/* Nav buttons*/
+.login_signup_cont{
+    display:inline;
+    background-color:rgba(247, 250, 245,0.6);
+    padding:15px;
+    border-radius:20px;
+    margin-right:20px;
+    
+}
+.btns_slash{
+    font-size: 20px;
+}
+
+.nav_Btn{
+    background-color: transparent;
+    border-width: 0px;
+    cursor: pointer;
+}
+.nav_Btn:hover{
+    background-color: rgba(247, 250, 249);
+    padding:15px;
+    transition: 0.5s;
+    border-radius:20px;
+    margin:auto;
+}
+.saved_doc_btn{
+    cursor: pointer;
+    width:150px;
+    padding:15px;
+    background-color: #f53dae;
+    border-width:0px;
+    color:#ffffff;
+    cursor: pointer;
+    border-radius:20px;
+    margin-right:20px;
+}
+.get_started{
+    width:110px;
+    padding:15px;
+    background-color: #f53dae;
+    border-width:0px;
+    color:#ffffff;
+    cursor: pointer;
+    border-radius:20px;
+}
+
+.sub_line{
+    margin-top:0px;
+    font-size:10px;
+    font-weight: bold;
+}
+.heading_part_cont{
+    text-align: center;
+    height:40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #F5F6F7;
+}
+.heading{
+    font-size:50px;
+}
+.heading_para{
+    font-size:20px;
+    margin-top:0px;
+}
+.title{
+    margin-bottom: 0px;
+    margin-top: 0px;
+    font-size:40px;
+    font-weight: bold;
+    background: linear-gradient(to right, #096be2,#da0b8a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.resume_word{
+    color:#d108af;
+}
+
+
+/*templates part*/
+.temp_imgs_cont{
+    display:flex;
+}
+.templates_cont{
+    padding:20px;
+}
+.usetemp_btn{
+    position: absolute;
+  top: 90%; /* Positions the button vertically in the center */
+  left: 50%; /* Positions the button horizontally in the center */
+  transform: translate(-50%, -50%); /* Adjusts for the button's size to ensure true centering */
+  opacity: 0; /* Initially hides the button */
+  visibility: hidden; /* Also hides the button from screen readers and pointer events */
+  transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth transition for the hover effect */
+  
+  /* Add your own button styling here */
+  padding: 10px 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.img_cont{
+    position: relative;
+    display: inline-block;
+    margin-right:30px;
+}
+.img_cont:hover .usetemp_btn{
+    opacity: 1;
+    visibility: visible;
+}
+.temp_imgs{
+    height:100%;
+    width:100%;
+}
+.temp_imgs{
+    border: 2px solid grey;
+    border-radius: 10px;
+}
+
+/*Steps part*/
+.steps_heading_part{
+    text-align: center;
+    margin:60px;
+}
+.steps_imgs{
+    width:500px;
+}
+.main_steps{
+    display:flex;
+    justify-content: center;
+}
+.steps_txt_content{
+    display: flex;
+    flex-direction: column;
+    padding:50px;
+}
+.no2{
+    align-self: flex-start;
+}
+.num{
+    align-self: flex-end;
+}
+.all_num{
+    background-color: #aff060;
+    padding:30px;
+    border-radius:30px;
+}
+.fir_text_cont{
+    margin-right: 60px;
+}
+.sec_text_cont{
+    order:1;
+    margin-left: 60px;
+}
+.third_txt_content{
+    margin-right: 60px;
+}
+.card_cont{
+    background-color:#d4f0b3;
+    border-radius:30px;
+    padding:30px;
+    width:300px;
+    
+}
+.steps_card{
+    
+    margin:180px;
+    margin-top: 10px;
+    
+    border-radius:60px;
+}

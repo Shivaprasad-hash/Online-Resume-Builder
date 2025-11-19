@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Second Template</title>
+    <link rel="stylesheet" href="secpgopening.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/ffe7aa65d3.js" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.12.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.12.1/firebase-database-compat.js"></script>
+</head>
+<body>
+    <div class="left_part">
+        <div class="main-container">
+            <div class="form-section personal-details">
+                <header>
+                    <h1>Personal details</h1>
+                    <div class="header-icons">
+                        <div class="icon-group">
+                            
+                            <span>&#9660;</span>
+                        </div>
+                    </div>
+                </header>
+
+                <main>
+                    <div class="form-row">
+                        <div class="form-group large-field">
+                            <label for="given-name">First name</label>
+                            <input type="text" id="given-name">
+                        </div>
+                        <div class="form-group large-field">
+                            <label for="family-name">Family name</label>
+                            <input type="text" id="family-name">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group large-field headline-field">
+                            <label for="desired-position">Desired job position</label>
+                            <input type="text" id="desired-position">
+                        </div>
+                        <div class="form-group switch-group">
+                            <label class="switch">
+                                <input type="checkbox" id="useAsHeadlineCheckBox">
+                                <span class="slider round"></span>
+                            </label>
+                            <span>Use as headline</span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group large-field">
+                            <label for="email">Email address</label>
+                            <input type="email" id="email">
+                        </div>
+                        <div class="form-group large-field">
+                            <label for="phone">Phone number</label>
+                            <input type="tel" id="phone">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group full-width">
+                            <label for="address">Address</label>
+                            <input type="text" id="address">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group large-field">
+                            <label for="post-code">Post code</label>
+                            <input type="text" id="post-code">
+                        </div>
+                        <div class="form-group large-field">
+                            <label for="city">City</label>
+                            <input type="text" id="pdCity">
+                        </div>
+                    </div>
+                    <div class="form-group large-field">
+                        <label for="city">Linkedin</label>
+                        <input type="text" id="linkedin">
+                    </div>
+                    <footer>
+                        <button class="done-button"  id="pdDoneBtn">✔️ Done</button>
+                    </footer>
+                </main>
+            </div>
+
+            <div class="form-section summary">
+                <header>
+                    <h1>Summary</h1>
+                    <div class="header-icons">
+                        <div class="icon-group">
+                            <span>&#9660;</span>
+                        </div>
+                    </div>
+                </header>
+                <main>
+                    <textarea rows="2" id="summaryText" class="summary_txt" placeholder="Type your Summary here..."></textarea>
+                    <footer>
+                        <button class="done-button" id="summaryDoneBtn">✔️ Done</button>
+                    </footer>
+                </main>
+            </div>
+
+            <div class="form-section education">
+                <header>
+                    <h1>Education</h1>
+                    <div class="header-icons">
+                        <div class="icon-group">
+                            
+                            <span>&#9650;</span>
+                        </div>
+                    </div>
+                </header>
+
+                <main>
+                    <div class="form-group">
+                        <label for="institution">Education</label>
+                        <input type="text" id="institution">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="school">School</label>
+                            <input type="text" id="school">
+                        </div>
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" id="city">
+                        </div>
+                    </div>
+
+                    <div class="form-row date-row">
+                        <div class="form-group date-picker">
+                            <label>Start date</label>
+                            <div class="date-inputs">
+                                <select>
+                                    <option placeholder="Month">Month</option>
+                                    <option value="01">January</option>
+                                    <option value="02">February</option>
+                                    <option value="03">March</option>
+                                    <option value="04">April</option>
+                                    <option value="05">May</option>
+                                    <option value="06">June</option>
+                                    <option value="07">July</option>
+                                    <option value="08">August</option>
+                                    <option value="09">September</option>
+                                    <option value="10">October</option>
+                                    <option value="11">November</option>
+                                    <option value="12">December</option>
+                                </select>
+                                <select id="yearSelectStartDate">
+                                    <option placeholder="Year">Year</option>
+                                    
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group date-picker end-date">
+                            <label>End date</label>
+                            <div class="date-inputs">
+                                <select>
+                                    <option placeholder="Month">Month</option>
+                                    <option value="01">January</option>
+                                    <option value="02">February</option>
+                                    <option value="03">March</option>
+                                    <option value="04">April</option>
+                                    <option value="05">May</option>
+                                    <option value="06">June</option>
+                                    <option value="07">July</option>
+                                    <option value="08">August</option>
+                                    <option value="09">September</option>
+                                    <option value="10">October</option>
+                                    <option value="11">November</option>
+                                    <option value="12">December</option>
+                                </select>
+                                <select id="yearSelectEndDate">
+                                    <option placeholder="Year">Year</option>
+                                    
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group present-switch">
+                            <label class="switch">
+                                <input type="checkbox" id="eduCheckbox">
+                                <span class="slider round"></span>
+                            </label>
+                            <span id="eduPresentTxt">Present</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group description-group">
+                        <label for="description">Description</label>
+                        <textarea id="description" placeholder="Start typing here..."></textarea>
+                        
+                    </div>
+                    <button class="add-skill-btn">Add education +</button>
+                </main>
+
+                <footer>
+                    <button class="delete-button">🗑️</button>
+                    <button class="done-button" id="eduDoneBtn">✔️ Done</button>
+                </footer>
+            </div>
+
+
+            <div class="form-section employment">
+                <header>
+                    <h1>Experience</h1>
+                    <div class="header-icons">
+                        <div class="icon-group">
+                            
+                            <span>&#9650;</span>
+                        </div>
+                    </div>
+                </header>
+
+                <main>
+                    <div class="form-group">
+                        <label for="institution">Position</label>
+                        <input type="text" id="position">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="companyName">Employer</label>
+                            <input type="text" id="companyName">
+                        </div>
+                        <div class="form-group">
+                            <label for="expCity">City</label>
+                            <input type="text" id="expCity">
+                        </div>
+                    </div>
+
+                    <div class="form-row date-row">
+                        <div class="form-group date-picker">
+                            <label>Start date</label>
+                            <div class="date-inputs">
+                                <select>
+                                    <option placeholder="Month">Month</option>
+                                    <option value="01">January</option>
+                                    <option value="02">February</option>
+                                    <option value="03">March</option>
+                                    <option value="04">April</option>
+                                    <option value="05">May</option>
+                                    <option value="06">June</option>
+                                    <option value="07">July</option>
+                                    <option value="08">August</option>
+                                    <option value="09">September</option>
+                                    <option value="10">October</option>
+                                    <option value="11">November</option>
+                                    <option value="12">December</option>
+                                </select>
+                                <select id="startExpYear">
+                                    <option placeholder="Year">Year</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group date-picker end-date">
+                            <label>End date</label>
+                            <div class="date-inputs">
+                                <select>
+                                    <option placeholder="Month">Month</option>
+                                    <option value="01">January</option>
+                                    <option value="02">February</option>
+                                    <option value="03">March</option>
+                                    <option value="04">April</option>
+                                    <option value="05">May</option>
+                                    <option value="06">June</option>
+                                    <option value="07">July</option>
+                                    <option value="08">August</option>
+                                    <option value="09">September</option>
+                                    <option value="10">October</option>
+                                    <option value="11">November</option>
+                                    <option value="12">December</option>
+                                </select>
+                                <select id="endExpYear">
+                                    <option placeholder="Year">Year</option>
+                                 
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group present-switch">
+                            <label class="switch">
+                                <input type="checkbox" id="expPresentCb">
+                                <span class="slider round"></span>
+                            </label>
+                            <span id="expPresentTxt">Present</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group description-group">
+                        <label for="description">Description</label>
+                        <textarea id="expDescription" placeholder="Start typing here..."></textarea>
+                        
+                    </div>
+                    <button class="add-skill-btn">Add experience +</button>
+                </main>
+
+                <footer>
+                    <button class="delete-button">🗑️</button>
+                    <button class="done-button" id="expDoneBtn">✔️ Done</button>
+                </footer>
+            </div>
+
+            <div class="form-section hard_skills">
+                <header>
+                    <h1>Hard Skills</h1>
+                    <div class="header-icons">
+                        <div class="icon-group">
+                            
+                            <span>&#9650;</span>
+                        </div>
+                    </div>
+                </header>
+                <main>
+                    <div class="form-group">
+                        <label for="institution">Skill</label>
+                        <input type="text" id="skill">
+                    </div>
+                    <button class="add-skill-btn">Add skill +</button>
+                </main>
+                <footer>
+                    <button class="delete-button">🗑️</button>
+                    <button class="done-button">✔️ Done</button>
+                </footer>
+            </div>
+
+            <div class="form-section soft_skills">
+                <header>
+                    <h1>Soft Skills</h1>
+                    <div class="header-icons">
+                        <div class="icon-group">
+                            
+                            <span>&#9650;</span>
+                        </div>
+                    </div>
+                </header>
+                <main>
+                    <div class="form-group">
+                        <label for="institution">Skill</label>
+                        <input type="text" id="skill">
+                    </div>
+                    <button class="add-skill-btn">Add skill +</button>
+                </main>
+                <footer>
+                    <button class="delete-button">🗑️</button>
+                    <button class="done-button">✔️ Done</button>
+                </footer>
+            </div>
+
+            <div class="form-section languages">
+                <header>
+                    <h1>Languages</h1>
+                    <div class="header-icons">
+                        <div class="icon-group">
+                            
+                            <span>&#9650;</span>
+                        </div>
+                    </div>
+                </header>
+                <main>
+                    <div class="form-group">
+                        <label for="institution">Language</label>
+                        <input type="text" id="language">
+                    </div>
+                    <button class="add-skill-btn">Add language +</button>
+                </main>
+                <footer>
+                    <button class="delete-button">🗑️</button>
+                    <button class="done-button">✔️ Done</button>
+                </footer>
+            </div>
+
+            <div class="form-section hobbies">
+                <header>
+                    <h1>Certifications</h1>
+                    <div class="header-icons">
+                        <div class="icon-group">
+                            
+                            <span>&#9650;</span>
+                        </div>
+                    </div>
+                </header>
+                <main>
+                    <div class="form-group" id="certiFornGroup">
+                        <label for="certificateInput">Certification</label>
+                        <input type="text" id="certificateInput">
+                        <br>
+                    </div>
+                    <button class="add-skill-btn" id="addCertificateBtn">Add certification +</button>
+                </main>
+                <footer>
+                    <button class="delete-button">🗑️</button>
+                    <button class="done-button" id="certificateDoneBtn">✔️ Done</button>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Part-->
+
+    <div class="right_part" id="rightPart">
+        <div class="sec_res_cont">
+            <div class="resume-container">
+                <div class="left-panel">
+                    <div>
+                        <h2 class="heading_name" id="headingName">Haley Greene</h2>
+                        <p id="headLine" class="desired_position desired_position_display"></p>
+                    </div>
+                    <div class="personal-details">
+                        <h3 class="section-title">Personal Details</h3>
+                        <ul class="contact-info">
+                            <li ><i class="fas fa-envelope" id="envelopIcon"></i><span id="emailInfo"> h.greene@example.com</span></li>
+                            <li ><i class="fas fa-phone" id="phoneIcon"></i><span id="phonenoInfo"> (123) 456-7890</span></li>
+                            <li ><i class="fas fa-home" id="homeIcon"></i><span id="adressInfo"> Bakersfield, CA</span></li>
+                            <li ><i class="fab fa-linkedin" id="linkedinIcon"></i><span id="linkedinInfo"> linkedin.com/in/h.greene</span></li>
+                        </ul>
+                    </div>
+                    <div class="hard-skills">
+                        <h3 class="section-title">Hard Skills</h3>
+                        <ul class="skills-list" id="hardSkills">
+                            
+                        </ul>
+                    </div>
+                    <div class="soft-skills">
+                        <h3 class="section-title">Soft skills</h3>
+                        <ul class="skills-list" id="softSkills">
+                            
+                        </ul>
+                    </div>
+                    <div class="languages">
+                        <h3 class="section-title">Languages</h3>
+                        <p>Spanish</p>
+                    </div>
+                </div>
+                <div class="right-panel">
+                    <div class="summary">
+                        <h2>Summary</h2>
+                        <p class="summary_body" id="summaryBody">Diligient and courteous server with 2+ years
+                             of experience serving 250+ guests per 
+                             shift and bussing in fast-paced, high-traffic restaurants.
+                             Seeking to leverage exceptional customer
+                             service skills and experience to join the Star Bistro team as a server.</p>
+                    </div>
+                    <div class="work-experience">
+                        <h2>Work Experience</h2>
+                        <div class="job-entry">
+                            <div class="company-info">
+                                <p class="fir_duration"><span id="startExpYearRight">Aug 2018 </span><span>- </span><span id="endExpYearRight"> Present</span></p>
+                            </div>
+                            <div class="fir-exp-body">
+                                <p class="job-title" id="jobRole">Server</p>
+                                <p class="location" id="jobLocation">Bahama Breeze, Bakersfield, CA</p>
+                                <p class="role_description" id="roleDescription">
+                                Managed a 10-table section, serving ~250 guests per shift
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="education">
+                        <h2>Education</h2>
+                        <div class="education-entry">
+                            <div class="duration-cont">
+                                <p class="edu_duration"><span id="startEduYear">2012 </span><span>-</span><span id="endEduYear" class="edu_present"> 2019</span></p>
+                            </div>
+                            <div class="edu-body">
+                                <p class="job-title" id="institutionName">Associate's Degree in General Business</p>
+                                <p class="edu-location" id="schoolCity">Bakersfield College, Bakersfield, CA</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="certifications">
+                        <h2>Certifications</h2>
+                        <ul class="certification-list" id="certificationList">
+                            <li id="certificate">Certified Professional - Food Safety (CP-FS) - 2019</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="preview_cont">
+            <!--<button class="save_btn" id="saveBtn">Save</button>-->
+            <button class="preview" id="previewBtn">Preview</button>
+        </div>
+    </div>
+
+    <script src="secpgopening.js"></script>
+</body>
+</html>

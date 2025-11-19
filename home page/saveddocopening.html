@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saved documents</title>
+    <script src="https://www.gstatic.com/firebasejs/9.12.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.12.1/firebase-database-compat.js"></script>
+    <script src="firebase.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .resume-item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        .resume-item:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Saved Documents</h1>
+    <div id="savedResumes"></div>
+
+    <script>
+        // Initialize Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyBX44m5Bi3aO1RQPh5r0BSKRwEUU4mwUgU",
+            authDomain: "resume-builder-fb3cf.firebaseapp.com",
+            databaseURL: "https://resume-builder-fb3cf-default-rtdb.firebaseio.com",
+            projectId: "resume-builder-fb3cf",
+            storageBucket: "resume-builder-fb3cf.firebasestorage.app",
+            messagingSenderId: "1091521301293",
+            appId: "1:1091521301293:web:e5218e8421d1b71c50a1a4",
+            measurementId: "G-8GK3G52NZH"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.database();
+
+        // Load saved resumes
+        const savedResumesRef = db.ref('resumes');
+        savedResumesRef.on('value', (snapshot) => {
+            const data = snapshot.val();
+            const savedResumesDiv = document.getElementById('savedResumes');
+            savedResumesDiv.innerHTML = '';
+
+            if (data) {
+                Object.keys(data).forEach(key => {
+                    const resume = data[key];
+                    const resumeDiv = document.createElement('div');
+                    resumeDiv.className = 'resume-item';
+                    resumeDiv.innerHTML = `
+                        <h3>${resume.name || 'Unnamed Resume'}</h3>
+                        <p>Template: ${resume.template}</p>
+                        <p>Saved at: ${new Date(resume.savedAt).toLocaleString()}</p>
+                    `;
+                    resumeDiv.addEventListener('click', () => {
+                        // Display full resume details or open in editor
+                        alert('Resume details: ' + JSON.stringify(resume, null, 2));
+                    });
+                    savedResumesDiv.appendChild(resumeDiv);
+                });
+            } else {
+                savedResumesDiv.innerHTML = '<p>No saved resumes found.</p>';
+            }
+        });
+    </script>
+</body>
+</html>

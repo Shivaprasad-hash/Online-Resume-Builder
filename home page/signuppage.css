@@ -1,0 +1,45 @@
+.names_cont{
+    display:flex;
+    justify-content: space-between;
+}
+.form_items{
+    display: flex;
+    flex-direction: column;
+}
+.bg_cont{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height:100vh;
+}
+.signin_card{
+    background-color: bisque;
+    padding:30px;
+    border-radius: 15px;
+    height:250px;
+    width:400px;
+}
+input{
+    border-width:0.5px;
+    height:30px;
+    border-radius: 5px;
+}
+input:focus{
+    outline: none;
+    border-color: #6096f0;   
+}
+.btn_cont{
+    display: flex;
+    justify-content: flex-end;
+
+}
+.create_acc_Btn{
+    border-width: 0px;
+    background-color: blueviolet;
+    color:#ffffff;
+    border-radius: 20px;
+    padding:10px;
+    width:90px;
+    cursor: pointer;
+}

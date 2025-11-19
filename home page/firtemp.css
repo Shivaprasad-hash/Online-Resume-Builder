@@ -1,0 +1,101 @@
+*{
+    box-sizing: border-box;
+    font-family: Roboto;
+}
+
+body{
+    margin:0px;
+}
+.bg_cont{
+    min-height:297mm;
+    max-height:330mm;
+    width:210mm;
+    padding-left:15px;
+    padding-right:15px;
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+}
+.header_title_cont{
+    display:flex;
+    flex-direction: row;
+    align-items:flex-start;
+    
+}
+.heading_name{
+    margin-left: 150px;
+    margin-top: 0px;
+    padding-top:45px;
+    color:#942c3a
+}
+.resume{
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #942c3a;
+    color:#ffffff;
+    margin-top:0px;
+    padding-top: 55px;
+}
+
+/*personal details*/
+.pd_body{
+    display: flex;
+}
+.sub_name_cont{
+    color:#942c3a;
+    font-weight: bold;
+
+}
+.sub_info_cont{
+    margin-left: 150px;
+}
+
+/*work experience*/
+.fir_exp{
+    display: flex;
+}
+.about_firrole_cont{
+    margin-left: 130px;
+}
+.fir_duration{
+    color:#942c3a;
+    font-size: 15px;
+    white-space: nowrap;
+    font-weight: bold;
+}
+.fir_role{
+    font-weight: bold;
+}
+.fir_location{
+    font-weight: bold;
+}
+
+/*skills*/
+.skill_body{
+    min-height:80px;
+    flex-wrap: wrap;
+    max-width:60%;
+    margin-left: 0px;
+    display: flex;
+    align-items: center;
+}
+.skill{
+    margin-right:25px;
+    background-color: #00000020;
+    padding:10px;
+    border-radius:20px;
+}
+
+/*Education*/
+.edu_body{
+    display: flex;
+    margin-bottom: 30px;
+}
+.edu_info_cont{
+    margin-left: 150px;
+    font-weight: bold;
+}
+.edu_duration{
+    color:#942c3a;
+    font-weight: bold;
+}

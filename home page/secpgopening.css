@@ -1,0 +1,564 @@
+body{
+    display: flex;
+}
+.left_part{
+    width:50%;
+    margin:0px;
+    height: 100vh;
+    overflow: auto;
+    padding:20px;
+}
+.right_part{
+    width: 50%;
+    position:fixed;
+    right:0px;
+    padding: 50px;
+    height:100vh;
+    overflow: auto;
+}
+
+/*---------------------------------------------------------------------------*/
+/* Leftside_input_part*/
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    
+}
+
+.main-container {
+    max-width: 800px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-section {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.header-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.icon-group {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 1.2rem;
+    color: #555;
+    cursor: pointer;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.form-group.large-field {
+    flex: 2;
+}
+
+.form-group.full-width {
+    flex: 1;
+}
+
+label {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+input,
+select,
+textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #6a1b9a;
+    box-shadow: 0 0 0 2px rgba(106, 27, 154, 0.2);
+}
+
+/* Toggle switch styles */
+.switch-group, .present-switch {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 0 0 auto;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 20px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #6a1b9a;
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+/* Education specific styles */
+.education .form-group.full-width, .education .form-group.large-field {
+    flex: 1;
+}
+
+.education .date-row {
+    align-items: center;
+}
+
+.education .date-picker {
+    flex: 1;
+}
+
+.education .date-inputs {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+.education .date-inputs select {
+    flex: 1;
+}
+
+.education .present-switch {
+    flex-shrink: 0;
+}
+
+textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.rich-text-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 5px 0;
+    border-top: 1px solid #eee;
+    margin-top: 10px;
+    align-items: center;
+}
+
+.rich-text-toolbar button {
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.rich-text-toolbar button:hover {
+    background-color: #eee;
+}
+
+.rich-text-toolbar .ai-suggestions {
+    margin-left: auto;
+    background-color: #f0f8ff;
+    border-color: #add8e6;
+    color: #4682b4;
+}
+
+.rich-text-toolbar .ai-suggestions:hover {
+    background-color: #e0f2f7;
+}
+
+footer {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 15px;
+    margin-top: 15px;
+    border-top: 1px solid #eee;
+    gap: 10px;
+}
+
+footer button {
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: 1px solid #ddd;
+}
+
+footer .delete-button {
+    background-color: #fdecea;
+    color: #d9534f;
+    border-color: #d9534f;
+}
+
+footer .delete-button:hover {
+    background-color: #f9d4d4;
+}
+
+footer .done-button {
+    background-color: #6a1b9a;
+    color: white;
+    border-color: #6a1b9a;
+}
+
+footer .done-button:hover {
+    background-color: #58157d;
+}
+
+/*Employment styles*/
+
+.employment .form-group.full-width, .education .form-group.large-field {
+    flex: 1;
+}
+
+.employment .date-row {
+    align-items: center;
+}
+
+.employment .date-picker {
+    flex: 1;
+}
+
+.employment .date-inputs {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+.employment .date-inputs select {
+    flex: 1;
+}
+
+.employment .present-switch {
+    flex-shrink: 0;
+}
+
+/* skills section*/
+.add-skill-btn{
+    align-self: flex-start;
+    padding:10px;
+    border:1px solid grey;
+    background-color: transparent;
+    border-radius: 10px;
+    font-size: 12px;
+}
+.add-skill-btn:hover{
+    border-color: #6a1b9a;
+}
+
+/*-----------------------------------------------------------------------------------*/
+/* Rightside_sec_resume_part*/
+*{
+    box-sizing: border-box;
+    font-family: Roboto;
+}
+
+:root {
+            --primary-color: #3b746c;
+            --secondary-color: #2e5b54;
+            --text-color: #333;
+            --light-text-color: #fff;
+            --gray-text-color: #666;
+            --border-color: #ddd;
+            --font-family: 'Roboto', sans-serif;
+        }
+
+        .sec_res_cont {
+            font-family: var(--font-family);
+            margin: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+        }
+
+        .resume-container {
+            display: flex;
+            padding-right:15px;
+            border-radius: 5px;
+            box-shadow: 1px 1px 10px 5px rgba(0, 0, 0, 0.2);
+            background-color: #fff;
+        }
+
+        .left-panel {
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            width: 35%;
+            background-color: #3b746c;
+            color: var(--light-text-color);
+            padding: 40px 20px;
+           
+            
+            
+        }
+
+        .right-panel {
+            width: 65%;
+            padding: 40px;
+            
+            color: var(--text-color);
+        }
+
+        .left-panel h2 {
+            font-size: 1.5em;
+            margin-top: 0;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .left-panel .section-title {
+            font-size: 1.1em;
+            font-weight: 700;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--light-text-color);
+            padding-bottom: 5px;
+        }
+
+        .personal-details {
+            margin-top: 20px;
+        }
+
+        .contact-info {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .contact-info li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+           
+            
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .skills-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .skills-list li {
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .languages-dots {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .language-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            margin-right: 5px;
+        }
+
+        .language-dot.filled {
+            background-color: var(--light-text-color);
+        }
+
+        .right-panel h2 {
+            font-size: 23px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .right-panel h3 {
+            font-size: 1.2em;
+            margin-top: 20px;
+            margin-bottom: 5px;
+            font-weight: 700;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 5px;
+        }
+
+        .right-panel p {
+            margin: 0 0 10px 0;
+            
+        }
+
+        .work-experience, .education, .certifications {
+            margin-bottom: 30px;
+        }
+
+        .job-title {
+            font-weight: 700;
+            font-size: 1.1em;
+            margin-bottom: 0;
+            color: var(--text-color);
+        }
+
+        .company-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9em;
+            color: var(--gray-text-color);
+            margin-bottom: 5px;
+        }
+
+        .company-info span:first-child {
+            color: #000000;
+        }
+        .location{
+            color: var(--primary-color);
+        }
+        
+        .work-details {
+            list-style: disc;
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+
+        .work-details li {
+            margin-bottom: 5px;
+            color:#000000;
+        }
+
+        .education-info {
+            font-size: 1em;
+            margin-bottom: 5px;
+            color:#000000;
+        }
+        .edu-location{
+            color: var(--primary-color);
+        }
+
+        .certification-list {
+            padding-left: 20px;
+        }
+
+        .certification-list li {
+            margin-bottom: 5px;
+            color:#000000;
+        }
+        .job-entry{
+            display: flex;
+            margin-top:20px;
+        }
+        .company-info{
+            align-self: flex-start;
+        }
+        .fir-exp-body{
+            margin-left: 50px;
+            margin-top: 0px;
+        }
+        .sec-exp-body{
+            margin-left: 50px;
+            margin-top: 0px;
+        }
+        .duration{
+            white-space: nowrap;
+            font-weight: bold;
+        }
+        .education-entry{
+            display: flex;
+        }
+        .edu-body{
+            margin-left: 100px;
+        }
+        .education-info{
+            white-space: nowrap;
+        }
+.preview_cont{
+    display:flex;
+    justify-content: flex-end;
+    margin-top: 30px;
+}
+.preview{
+    background-color: #6a1b9a;
+    color: white;
+    border-color: #6a1b9a;
+    border-width: 0px;
+    padding:15px;
+    border-radius: 5px;
+}
+.fir_duration{
+    white-space: nowrap;
+}
+.edu_duration{
+    white-space: nowrap;
+}
