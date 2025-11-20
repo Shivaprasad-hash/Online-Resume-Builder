@@ -27,6 +27,24 @@ function sendTestData() {
     });
 }
 
+const hambIcon = document.getElementById('hamb-icon');
+const navBtnMenu = document.getElementById('navBtnMenu');
+const closeIcon = document.getElementById('closeIcon');
+
+hambIcon.addEventListener('click', () => {
+    navBtnMenu.classList.toggle('d-none');
+    closeIcon.classList.toggle('d-none');
+    hambIcon.classList.toggle('d-none');
+});
+
+closeIcon.addEventListener('click', () => {
+    navBtnMenu.classList.toggle('d-none');
+    closeIcon.classList.toggle('d-none');
+    hambIcon.classList.toggle('d-none');
+});
+
+
+
 const signupbtn = document.getElementById('createAccount');
 signupbtn.addEventListener('click', {
 

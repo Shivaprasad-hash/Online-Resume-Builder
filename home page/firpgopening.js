@@ -279,8 +279,198 @@ window.addEventListener('DOMContentLoaded', function() {
 
     // Preview Btn Part
     let previewBtn = document.getElementById("previewBtn");
+    let previewBtn2 = this.document.getElementById("previewBtn2");
 
     previewBtn.addEventListener("click",function(){
+        let previewPart = document.getElementById("rightPreviewSec").innerHTML;
+
+        let newWindow = window.open("","_blank");
+
+        newWindow.document.write(`
+            <html>
+            <head>
+                <title>Resume Preview</title>
+                <style>
+                    *{
+                        box-sizing: border-box;
+                        font-family: Roboto;
+                    }
+                    .bg_cont{
+
+
+                        border:1px solid black;
+                        padding-left:15px;
+                        padding-right:15px;
+                    }
+                    .right_part{
+                        min-height:297mm;
+                        width:210mm;
+                        margin-left: auto;
+                        margin-right: auto;
+
+                        padding:0px;
+                        height:100vh;
+                        overflow:auto;
+                    }
+                    .right_part::-webkit-scrollbar{
+                        display:none;
+                    }
+                    .header_title_cont{
+                        display:flex;
+                        flex-direction: row;
+                        align-items:flex-start;
+                    }
+
+                    .heading_name{
+                        margin-left: 150px;
+                        margin-top: 0px;
+                        padding-top:45px;
+                        color:#942c3a
+                    }
+                    .desired_position{
+                        margin-left: 150px;
+                    }
+                    .desired_position_display{
+                        display:none
+                    }
+                    .resume{
+                        padding-left: 10px;
+                        padding-right: 10px;
+                        background-color: #942c3a;
+                        color:#ffffff;
+                        margin-top:0px;
+                        padding-top: 55px;
+                    }
+
+                    /*personal details*/
+                    .pd_body{
+                        display: flex;
+                    }
+                    .sub_name_cont{
+                        color:#942c3a;
+                        font-weight: bold;
+
+                    }
+                    .sub_info_cont{
+                        margin-left: 150px;
+                    }
+
+                    /*work experience*/
+                    .fir_exp{
+                        display: flex;
+                    }
+                    .about_firrole_cont{
+                        margin-left: 130px;
+                    }
+                    .fir_duration{
+                        color:#942c3a;
+                        font-size: 15px;
+                        white-space: nowrap;
+                        font-weight: bold;
+                    }
+                    .fir_role{
+                        font-weight: bold;
+                    }
+                    .fir_location{
+                        font-weight: bold;
+                    }
+
+                    /*skills*/
+                    .skill_body{
+                        min-height:80px;
+                        flex-wrap: wrap;
+                        max-width:60%;
+                        margin-left: 0px;
+                        display: flex;
+                        align-items: center;
+                    }
+                    .skill{
+                        margin-right:25px;
+                        background-color: #00000020;
+                        padding:10px;
+                        border-radius:20px;
+                    }
+
+                    /*Education*/
+                    .edu_body{
+                        display: flex;
+                        margin-bottom: 30px;
+
+                    }
+                    .edu_info_cont{
+                        margin-left: 150px;
+                        font-weight: bold;
+                    }
+                    .edu_duration{
+                        color:#942c3a;
+                        font-weight: bold;
+                        white-space: nowrap;
+                    }
+                    .preview{
+                        display:none;
+                    }
+                    .save_btn{
+                        display:none;
+                    }
+                    .download_btn_cont{
+                        display:flex;
+                        justify-content:flex-end;
+                    }
+                    .download_btn{
+                        background-color: #6a1b9a;
+                        color: white;
+                        border-color: #6a1b9a;
+                        border-width: 0px;
+                        padding:15px;
+                        border-radius: 5px;
+                        cursor:pointer;
+                        margin-right: 20px;
+                    }
+                    .captureSection{
+                        width: 100%;
+                        max-width:100%;
+                    }
+                </style>
+            </head>
+            <body>
+                <div class="download_btn_cont">
+                    <button class="download_btn" id="downloadBtn">Download</button>
+                </div>
+                <div id="captureSection">
+                    ${previewPart}
+                </div>
+
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+                <script>
+                    let pdfButton = document.getElementById("downloadBtn");
+
+                    pdfButton.addEventListener('click', function () {
+                        const captureSection = document.getElementById('captureSection');
+
+                        const opt = {
+                            margin:       0,  // removes white gaps
+                            filename:     'resume.pdf',
+                            image:        { type: 'jpeg', quality: 1 },
+                            html2canvas:  { scale: 2 },  // sharp text/images
+                            jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+                        };
+
+                        html2pdf().set(opt).from(captureSection).save();
+                    });
+                </script>
+            </body>
+
+            </html>
+            `);
+
+            newWindow.document.close();
+    });
+
+
+    
+
+    previewBtn2.addEventListener("click",function(){
         let previewPart = document.getElementById("rightPreviewSec").innerHTML;
 
         let newWindow = window.open("","_blank");

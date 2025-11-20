@@ -256,8 +256,295 @@ addCertificateBtn.addEventListener('click',addCerti);
 
 // Preview Btn Part
 let previewBtn = document.getElementById("previewBtn");
+let previewBtn2 = document.getElementById("previewBtn2");
 
 previewBtn.addEventListener("click",function(){
+    let previewPart = document.getElementById("rightPart").innerHTML;
+
+    let newWindow = window.open("","_blank");
+
+    newWindow.document.write(`
+        <html>
+        <head>
+            <title>Resume Preview</title>
+            <style>
+                *{
+                    box-sizing: border-box;
+                    font-family: Roboto;
+                }
+
+                :root {
+                    --primary-color: #3b746c;
+                    --secondary-color: #2e5b54;
+                    --text-color: #333;
+                    --light-text-color: #fff;
+                    --gray-text-color: #666;
+                    --border-color: #ddd;
+                    --font-family: 'Roboto', sans-serif;
+                }
+
+                .right_part{
+                    min-height:297mm;
+                    width:210mm;
+                   
+                    padding:0px;
+                    height:100vh;
+                    
+                }
+                .right_part::-webkit-scrollbar{
+                    display:none;
+                }
+                .sec_res_cont {
+                    font-family: var(--font-family);
+                    margin: 0;
+                    background-color: #f4f4f4;
+                    display: flex;
+                    justify-content: center;
+                    width:210mm;
+                    margin-left:auto;
+                    margin-right:auto;
+                    overflow:auto;
+                    border:1px solid black;
+                    min-height:297mm;
+                    height:100vh;
+                }
+
+                
+
+                .resume-container {
+                    display: flex;
+                    padding-right:15px;
+                    border-radius: 5px;
+                    box-shadow: 1px 1px 10px 5px rgba(0, 0, 0, 0.2);
+                    background-color: #fff;
+                }
+
+                .left-panel {
+                    border-top-left-radius: 5px;
+                    border-bottom-left-radius: 5px;
+                    width: 35%;
+                    background-color: #3b746c;
+                    color: var(--light-text-color);
+                    padding: 40px 20px;
+                }
+
+                .right-panel {
+                    width: 65%;
+                    padding: 40px;
+                    color: var(--text-color);
+                }
+
+                .left-panel h2 {
+                    font-size: 1.5em;
+                    margin-top: 0;
+                    margin-bottom: 5px;
+                    font-weight: 700;
+                }
+
+                .left-panel .section-title {
+                    font-size: 1.1em;
+                    font-weight: 700;
+                    margin-top: 30px;
+                    margin-bottom: 15px;
+                    border-bottom: 1px solid var(--light-text-color);
+                    padding-bottom: 5px;
+                }
+
+                .personal-details {
+                    margin-top: 20px;
+                }
+
+                .contact-info {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                }
+
+                .contact-info li {
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 20px;
+                }
+
+                .contact-info i {
+                    margin-right: 10px;
+                    font-size: 1.2em;
+                }
+
+                .skills-list {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                }
+
+                .skills-list li {
+                    margin-bottom: 20px;
+                    font-weight: 400;
+                }
+
+                .right-panel h2 {
+                    font-size: 23px;
+                    margin-bottom: 10px;
+                    font-weight: 700;
+                }
+
+                .right-panel h3 {
+                    font-size: 1.2em;
+                    margin-top: 20px;
+                    margin-bottom: 5px;
+                    font-weight: 700;
+                    border-bottom: 2px solid var(--border-color);
+                    padding-bottom: 5px;
+                }
+
+                .right-panel p {
+                    margin: 0 0 10px 0;
+                }
+
+                .work-experience, .education, .certifications {
+                    margin-bottom: 30px;
+                }
+
+                .job-title {
+                    font-weight: 700;
+                    font-size: 1.1em;
+                    margin-bottom: 0;
+                    color: var(--text-color);
+                }
+
+                .company-info {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    font-size: 0.9em;
+                    color: var(--gray-text-color);
+                    margin-bottom: 5px;
+                }
+
+                .company-info span:first-child {
+                    color: #000000;
+                }
+                .location{
+                    color: var(--primary-color);
+                }
+
+                .work-details {
+                    list-style: disc;
+                    padding-left: 20px;
+                    margin-top: 10px;
+                }
+
+                .work-details li {
+                    margin-bottom: 5px;
+                    color:#000000;
+                }
+
+                .education-info {
+                    font-size: 1em;
+                    margin-bottom: 5px;
+                    color:#000000;
+                }
+                .edu-location{
+                    color: var(--primary-color);
+                }
+
+                .certification-list {
+                    padding-left: 20px;
+                }
+
+                .certification-list li {
+                    margin-bottom: 5px;
+                    color:#000000;
+                }
+                .job-entry{
+                    display: flex;
+                    margin-top:20px;
+                }
+                .company-info{
+                    align-self: flex-start;
+                }
+                .fir-exp-body{
+                    margin-left: 50px;
+                    margin-top: 0px;
+                }
+                .sec-exp-body{
+                    margin-left: 50px;
+                    margin-top: 0px;
+                }
+                .duration{
+                    white-space: nowrap;
+                    font-weight: bold;
+                }
+                .education-entry{
+                    display: flex;
+                }
+                .edu-body{
+                    margin-left: 100px;
+                }
+                .education-info{
+                    white-space: nowrap;
+                }
+                .preview_cont{
+                    display:none;
+                }
+                .download_btn_cont{
+                    display:flex;
+                    justify-content:flex-end;
+                }
+                .download_btn{
+                    background-color: #6a1b9a;
+                    color: white;
+                    border-color: #6a1b9a;
+                    border-width: 0px;
+                    padding:15px;
+                    border-radius: 5px;
+                    cursor:pointer;
+                    margin-right: 20px;
+                }
+                .captureSection{
+                    width: 100%;
+                    max-width:100%;
+                    
+                }
+            </style>
+        </head>
+        <body>
+            <div class="download_btn_cont">
+                <button class="download_btn" id="downloadBtn">Download</button>
+            </div>
+            <div id="captureSection">
+                ${previewPart}
+            </div>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+            <script>
+                let pdfButton = document.getElementById("downloadBtn");
+
+                pdfButton.addEventListener('click', function () {
+                    const captureSection = document.getElementById('captureSection');
+
+                    const opt = {
+                        margin:       0,  // removes white gaps
+                        filename:     'resume.pdf',
+                        image:        { type: 'jpeg', quality: 1 },
+                        html2canvas:  { scale: 2 },  // sharp text/images
+                        jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+                    };
+
+                    html2pdf().set(opt).from(captureSection).save();
+                });
+            </script>
+        </body>
+
+        </html>
+        `);
+
+        newWindow.document.close();
+});
+
+
+previewBtn2.addEventListener("click",function(){
     let previewPart = document.getElementById("rightPart").innerHTML;
 
     let newWindow = window.open("","_blank");
