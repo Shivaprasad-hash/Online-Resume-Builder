@@ -232,6 +232,122 @@ window.addEventListener('DOMContentLoaded', function() {
 
     addSkillBtn.addEventListener('click',addSkillSec);
 
+    // Add Education Button
+    let addEducationBtn = document.getElementById("addEducationBtn");
+    let educationSection = document.querySelector(".form-section.education");
+
+    function addEducationSec(){
+        let randNums = Math.floor(Math.random()*100);
+
+        // Clone the education section
+        let newEducationSection = educationSection.cloneNode(true);
+        newEducationSection.id = "educationSection" + randNums;
+
+        // Update IDs in the cloned section
+        let inputs = newEducationSection.querySelectorAll("input, select, textarea");
+        inputs.forEach(input => {
+            if (input.id) {
+                input.id += randNums;
+            }
+        });
+
+        // Update labels
+        let labels = newEducationSection.querySelectorAll("label");
+        labels.forEach(label => {
+            if (label.htmlFor) {
+                label.htmlFor += randNums;
+            }
+        });
+
+        // Update the add button to remove in the cloned section
+        let addBtn = newEducationSection.querySelector(".add-skill-btn");
+        addBtn.remove();
+
+        // Add delete button functionality
+        let deleteBtn = newEducationSection.querySelector(".delete-button");
+        deleteBtn.addEventListener('click', function(){
+            newEducationSection.remove();
+        });
+
+        // Insert the new section after the original education section
+        educationSection.parentNode.insertBefore(newEducationSection, educationSection.nextSibling);
+    }
+
+    addEducationBtn.addEventListener('click', addEducationSec);
+
+    // Add Experience Button
+    let addExperienceBtn = document.getElementById("addExperienceBtn");
+    let experienceSection = document.querySelector(".form-section.employment");
+
+    function addExperienceSec(){
+        let randNums = Math.floor(Math.random()*100);
+
+        // Clone the experience section
+        let newExperienceSection = experienceSection.cloneNode(true);
+        newExperienceSection.id = "experienceSection" + randNums;
+
+        // Update IDs in the cloned section
+        let inputs = newExperienceSection.querySelectorAll("input, select, textarea");
+        inputs.forEach(input => {
+            if (input.id) {
+                input.id += randNums;
+            }
+        });
+
+        // Update labels
+        let labels = newExperienceSection.querySelectorAll("label");
+        labels.forEach(label => {
+            if (label.htmlFor) {
+                label.htmlFor += randNums;
+            }
+        });
+
+        // Update the add button to remove in the cloned section
+        let addBtn = newExperienceSection.querySelector(".add-skill-btn");
+        addBtn.remove();
+
+        // Add delete button functionality
+        let deleteBtn = newExperienceSection.querySelector(".delete-button");
+        deleteBtn.addEventListener('click', function(){
+            newExperienceSection.remove();
+        });
+
+        // Insert the new section after the original experience section
+        experienceSection.parentNode.insertBefore(newExperienceSection, experienceSection.nextSibling);
+    }
+
+    addExperienceBtn.addEventListener('click', addExperienceSec);
+
+    // Add Language Button
+    let addLanguageBtn = document.getElementById("addLanguageBtn");
+    let languageFormGroup = document.querySelector(".form-section.languages .form-group");
+
+    function addLanguageSec(){
+        let randNums = Math.floor(Math.random()*100);
+
+        let labelEle = document.createElement("label");
+        let inputEle = document.createElement("input");
+        let brEl = document.createElement("br");
+        inputEle.type = "text";
+        labelEle.textContent = "Language";
+        inputEle.id = "languageInput"+randNums;
+        labelEle.for = "institution";
+        labelEle.id = "languageLabel"+randNums;
+        languageFormGroup.appendChild(labelEle);
+        languageFormGroup.appendChild(inputEle);
+        languageFormGroup.appendChild(brEl);
+
+        let languageDelBtn = document.querySelector(".form-section.languages .delete-button");
+
+        languageDelBtn.addEventListener('click',function(){
+            labelEle.remove();
+            inputEle.remove();
+            brEl.remove();
+        });
+    }
+
+    addLanguageBtn.addEventListener('click',addLanguageSec);
+
 
 
     // Save Btn Part

@@ -180,6 +180,7 @@ function certiDetails(){
 certificateDoneBtn.addEventListener('click',certiDetails);
 
 let certiFornGroup = document.getElementById("certiFornGroup");
+let addedCertifications = [];
 
 function addCerti(){
     let randNums = Math.floor(Math.random()*100);
@@ -202,10 +203,11 @@ function addCerti(){
     newInputEl.type = "text";
     newLabelEl.for = newInputEl.id;
 
+    addedCertifications.push({label: newLabelEl, input: newInputEl, br: breakEl, li: listEle});
+
     newInputEl.addEventListener('input',function(){
         listEle.textContent = newInputEl.value;
-    })
-
+    });
 }
 // Save Btn Part
 // let saveBtn = document.getElementById("saveBtn");
@@ -253,6 +255,233 @@ function addCerti(){
 // });
 
 addCertificateBtn.addEventListener('click',addCerti);
+
+// Hard Skills
+let hardSkillInput = document.querySelector(".form-section.hard_skills input");
+let hardSkillsList = document.getElementById("hardSkills");
+let addHardSkillBtn = document.getElementById("addHardSkillBtn");
+let hardSkillsFormGroup = document.querySelector(".form-section.hard_skills .form-group");
+
+function addHardSkillSec(){
+    let randNums = Math.floor(Math.random()*100);
+
+    let labelEle = document.createElement("label");
+    let inputEle = document.createElement("input");
+    let brEl = document.createElement("br");
+    inputEle.type = "text";
+    labelEle.textContent = "Skill";
+    inputEle.id = "hardSkillInput"+randNums;
+    labelEle.for = inputEle.id;
+    hardSkillsFormGroup.appendChild(labelEle);
+    hardSkillsFormGroup.appendChild(inputEle);
+    hardSkillsFormGroup.appendChild(brEl);
+
+    let liEle = document.createElement("li");
+    hardSkillsList.appendChild(liEle);
+
+    inputEle.addEventListener("input", function () {
+        liEle.textContent = inputEle.value;
+    });
+
+    let hardSkillDelBtn = document.querySelector(".form-section.hard_skills .delete-button");
+    hardSkillDelBtn.addEventListener('click', function(){
+        labelEle.remove();
+        inputEle.remove();
+        brEl.remove();
+        liEle.remove();
+    });
+}
+
+addHardSkillBtn.addEventListener('click', addHardSkillSec);
+
+// For the first hard skill
+let firstHardLi = document.createElement("li");
+hardSkillsList.appendChild(firstHardLi);
+hardSkillInput.addEventListener("input", function () {
+    firstHardLi.textContent = hardSkillInput.value;
+});
+
+// Soft Skills
+let softSkillInput = document.querySelector(".form-section.soft_skills input");
+let softSkillsList = document.getElementById("softSkills");
+let addSoftSkillBtn = document.getElementById("addSoftSkillBtn");
+let softSkillsFormGroup = document.querySelector(".form-section.soft_skills .form-group");
+
+function addSoftSkillSec(){
+    let randNums = Math.floor(Math.random()*100);
+
+    let labelEle = document.createElement("label");
+    let inputEle = document.createElement("input");
+    let brEl = document.createElement("br");
+    inputEle.type = "text";
+    labelEle.textContent = "Skill";
+    inputEle.id = "softSkillInput"+randNums;
+    labelEle.for = inputEle.id;
+    softSkillsFormGroup.appendChild(labelEle);
+    softSkillsFormGroup.appendChild(inputEle);
+    softSkillsFormGroup.appendChild(brEl);
+
+    let liEle = document.createElement("li");
+    softSkillsList.appendChild(liEle);
+
+    inputEle.addEventListener("input", function () {
+        liEle.textContent = inputEle.value;
+    });
+
+    let softSkillDelBtn = document.querySelector(".form-section.soft_skills .delete-button");
+    softSkillDelBtn.addEventListener('click', function(){
+        labelEle.remove();
+        inputEle.remove();
+        brEl.remove();
+        liEle.remove();
+    });
+}
+
+addSoftSkillBtn.addEventListener('click', addSoftSkillSec);
+
+// For the first soft skill
+let firstSoftLi = document.createElement("li");
+softSkillsList.appendChild(firstSoftLi);
+softSkillInput.addEventListener("input", function () {
+    firstSoftLi.textContent = softSkillInput.value;
+});
+
+// Languages
+let languageInput = document.querySelector(".form-section.languages input");
+let addLanguageBtn = document.getElementById("addLanguageBtn");
+let languageFormGroup = document.querySelector(".form-section.languages .form-group");
+let addedLanguages = [];
+
+function addLanguageSec(){
+    let randNums = Math.floor(Math.random()*100);
+
+    let labelEle = document.createElement("label");
+    let inputEle = document.createElement("input");
+    let brEl = document.createElement("br");
+    inputEle.type = "text";
+    labelEle.textContent = "Language";
+    inputEle.id = "languageInput"+randNums;
+    labelEle.for = inputEle.id;
+    languageFormGroup.appendChild(labelEle);
+    languageFormGroup.appendChild(inputEle);
+    languageFormGroup.appendChild(brEl);
+
+    let languagesDiv = document.querySelector(".languages");
+    let newPEle = document.createElement("p");
+    languagesDiv.appendChild(newPEle);
+
+    addedLanguages.push({label: labelEle, input: inputEle, br: brEl, p: newPEle});
+
+    inputEle.addEventListener("input", function () {
+        newPEle.textContent = inputEle.value;
+    });
+}
+
+addLanguageBtn.addEventListener('click', addLanguageSec);
+
+// For the first language
+let firstLanguageP = document.querySelector(".languages p");
+languageInput.addEventListener("input", function () {
+    firstLanguageP.textContent = languageInput.value;
+});
+
+// Delete for languages
+let languageDelBtn = document.querySelector(".form-section.languages .delete-button");
+languageDelBtn.addEventListener('click', function(){
+    if(addedLanguages.length > 0){
+        let last = addedLanguages.pop();
+        last.label.remove();
+        last.input.remove();
+        last.br.remove();
+        last.p.remove();
+    }
+});
+
+// Add Education
+let addEducationBtn = document.getElementById("addEducationBtn");
+let educationSection = document.querySelector(".form-section.education");
+
+function addEducationSec(){
+    let randNums = Math.floor(Math.random()*100);
+
+    // Clone the education section
+    let newEducationSection = educationSection.cloneNode(true);
+    newEducationSection.id = "educationSection" + randNums;
+
+    // Update IDs in the cloned section
+    let inputs = newEducationSection.querySelectorAll("input, select, textarea");
+    inputs.forEach(input => {
+        if (input.id) {
+            input.id += randNums;
+        }
+    });
+
+    // Update labels
+    let labels = newEducationSection.querySelectorAll("label");
+    labels.forEach(label => {
+        if (label.htmlFor) {
+            label.htmlFor += randNums;
+        }
+    });
+
+    // Update the add button to remove in the cloned section
+    let addBtn = newEducationSection.querySelector(".add-skill-btn");
+    addBtn.remove();
+
+    // Add delete button functionality
+    let deleteBtn = newEducationSection.querySelector(".delete-button");
+    deleteBtn.addEventListener('click', function(){
+        newEducationSection.remove();
+    });
+
+    // Insert the new section after the original education section
+    educationSection.parentNode.insertBefore(newEducationSection, educationSection.nextSibling);
+}
+
+addEducationBtn.addEventListener('click', addEducationSec);
+
+// Add Experience
+let addExperienceBtn = document.getElementById("addExperienceBtn");
+let experienceSection = document.querySelector(".form-section.employment");
+
+function addExperienceSec(){
+    let randNums = Math.floor(Math.random()*100);
+
+    // Clone the experience section
+    let newExperienceSection = experienceSection.cloneNode(true);
+    newExperienceSection.id = "experienceSection" + randNums;
+
+    // Update IDs in the cloned section
+    let inputs = newExperienceSection.querySelectorAll("input, select, textarea");
+    inputs.forEach(input => {
+        if (input.id) {
+            input.id += randNums;
+        }
+    });
+
+    // Update labels
+    let labels = newExperienceSection.querySelectorAll("label");
+    labels.forEach(label => {
+        if (label.htmlFor) {
+            label.htmlFor += randNums;
+        }
+    });
+
+    // Update the add button to remove in the cloned section
+    let addBtn = newExperienceSection.querySelector(".add-skill-btn");
+    addBtn.remove();
+
+    // Add delete button functionality
+    let deleteBtn = newExperienceSection.querySelector(".delete-button");
+    deleteBtn.addEventListener('click', function(){
+        newExperienceSection.remove();
+    });
+
+    // Insert the new section after the original experience section
+    experienceSection.parentNode.insertBefore(newExperienceSection, experienceSection.nextSibling);
+}
+
+addExperienceBtn.addEventListener('click', addExperienceSec);
 
 // Preview Btn Part
 let previewBtn = document.getElementById("previewBtn");
